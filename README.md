@@ -1,5 +1,5 @@
 # Weather App
-**Page Link**
+**Page Link:**
 https://weatherapp-himavarshith-reddys-projects.vercel.app/
 ![Weather App Screenshot](screenshot.png)
 
@@ -26,9 +26,9 @@ We welcome contributions! Feel free to fork the repository, make your changes, a
 
 
 🌐 **Acknowledgments**:
-- Weather data provided by [WeatherApi.com](https://www.weatherapi.com/).
+- Weather data provided by [Weatherapi.com](https://www.weatherapi.com/).
 
-** Author **
+**Author**
 Himavarshith Reddy
 
 Try it now. 🌤️
