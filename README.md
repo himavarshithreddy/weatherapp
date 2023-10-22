@@ -28,7 +28,8 @@ We welcome contributions! Feel free to fork the repository, make your changes, a
 🌐 **Acknowledgments**:
 - Weather data provided by [WeatherApi.com](https://www.weatherapi.com/).
 
-## Author
+** Author **
 Himavarshith Reddy
- Try it now. 🌤️
+
+Try it now. 🌤️
 
