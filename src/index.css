@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Mohave:wght@300;400;500;600;700&family=Raleway:wght@300&display=swap');
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('/src/Assests/background.jpg');
+  background-attachment: fixed;
+  
+  background-size: cover;
+}
+
+code {
+  font-family: 'Mohave', sans-serif;
+  font-family: 'Raleway', sans-serif;
+}
