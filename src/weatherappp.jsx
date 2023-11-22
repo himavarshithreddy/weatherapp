@@ -138,9 +138,12 @@ function Weatherapp(){
         const response = await fetch('https://api.ipdata.co?api-key=cb980b4d080e774050e182dfea975621bfb35dbdebce8c88ba847baf');
         const data = await response.json();
   
+        const ip = data.ip;
         const city = data.city;
-  
-        searchfun(city);
+        setCity(city);
+        console.log(city)
+  console.log(ip)
+        searchfun(ip);
       } catch (error) {
         console.error('Error fetching IP information:', error);
       }
