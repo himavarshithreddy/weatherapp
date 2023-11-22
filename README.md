@@ -1,6 +1,5 @@
 # Weather App
-**Page Link:**
-https://weatherapp-himavarshith-reddys-projects.vercel.app/
+
 ![Weather App Screenshot](screenshot.png)
 
 A simple weather app built using React that allows users to check the weather conditions for different cities.
@@ -9,7 +8,9 @@ A simple weather app built using React that allows users to check the weather co
 - Real-time weather data for cities worldwide.
 - Detailed information including temperature, humidity, wind speed, and UV index.
 - Save your favorite cities for quick access.
+- Auto set to the user's current location.
 - Beautiful weather icons for a visual representation.
+  
 
 🚀 **Technologies**:
 - **React**: Fast, efficient, and dynamic web application.
