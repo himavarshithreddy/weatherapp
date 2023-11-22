@@ -28,12 +28,14 @@ import blizzard from './Assests/weather/blizzard.png'
 
 
 function Weatherapp(){
+  const[cityy,setCityy]=useState("");
   const loadingBar = useRef(null);
   const handleToggle = () => {
     loadingBar.current.continuousStart();
     loadingBar.current.complete(); 
     
   };
+ 
   let api_key="8a4a55f412704e0cbb381617232110";
   const [wimg,setwimage]=useState(pcloudd);
   const searchfun = useCallback(async (city) => {
@@ -47,13 +49,14 @@ function Weatherapp(){
       const humidityval = document.getElementById("humidity");
       const windspeedval = document.getElementById("windspeed");
       const uvval = document.getElementById("uv");
-      const locationval = document.getElementById("location");
+      
       const tempval = document.getElementById("temp");
       const weathertypeval = document.getElementById("weathertype");
       humidityval.innerHTML = (data.current.humidity).toFixed(1)+"%";
       windspeedval.innerHTML = (data.current.wind_kph).toFixed(1)+" Km/h";
       uvval.innerHTML = data.current.uv;
-      locationval.innerHTML = data.location.name;
+      setCityy(data.location.name);
+      
       tempval.innerHTML = (data.current.temp_c).toFixed(1)+"°C";
       weathertypeval.innerHTML = data.current.condition.text;
 
@@ -140,7 +143,9 @@ function Weatherapp(){
   
         const ip = data.ip;
         const city = data.city;
-        setCity(city);
+        
+        const locationval2 = document.getElementById("location");
+        locationval2.innerHTML = city;
         console.log(city)
   console.log(ip)
         searchfun(ip);
@@ -200,7 +205,7 @@ return(
        <div className="maincon">
         <div>
         <div className="cityname">
-          <div id="location" className="location1">Location</div>
+          <div id="location" className="location1">{cityy || ""}</div>
           <div>
         <img className="favimg2" src={favimg2} alt="fav" onClick={handleFavoriteClick}></img></div>
         </div>
