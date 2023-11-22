@@ -1,9 +1,10 @@
-import React , { useState, useEffect }from "react";
+import React , { useState, useEffect,useCallback,useRef }from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './weatherapp.css';
 import searchimg from './Assests/search.png'
 import humidityimg from './Assests/humidity.png'
+import LoadingBar from 'react-top-loading-bar'
 import windspeedimg from './Assests/windsock.png'
 import uvimg from './Assests/uv.png'
 import favimg2 from './Assests/favorite.png'
@@ -27,17 +28,22 @@ import blizzard from './Assests/weather/blizzard.png'
 
 
 function Weatherapp(){
+  const loadingBar = useRef(null);
+  const handleToggle = () => {
+    loadingBar.current.continuousStart();
+    loadingBar.current.complete(); 
+    
+  };
   let api_key="8a4a55f412704e0cbb381617232110";
   const [wimg,setwimage]=useState(pcloudd);
-  const searchfun = async (city) => {
+  const searchfun = useCallback(async (city) => {
+    handleToggle();
     let url = `https://api.weatherapi.com/v1/current.json?key=${api_key}&q=${city}&aqi=no`;
     let response = await fetch(url);
     let data = await response.json();
     if (data && data.current) {
-      toast.success("Weather fetched!", {
-        position: "top-right",
-        className: 's-toast-message'
-      });
+      
+    
       const humidityval = document.getElementById("humidity");
       const windspeedval = document.getElementById("windspeed");
       const uvval = document.getElementById("uv");
@@ -123,7 +129,25 @@ function Weatherapp(){
       setCity("");
     }
    
-  };
+  },[api_key]);
+  useEffect(() => {
+  
+    const fetchUserLocation = async () => {
+      try {
+        // Fetch user's IP address
+        const response = await fetch('https://ipinfo.io/?token=4fa8f325b6f59f');
+        const data = await response.json();
+  
+        const city = data.city;
+  
+        searchfun(city);
+      } catch (error) {
+        console.error('Error fetching IP information:', error);
+      }
+    };
+
+    fetchUserLocation();
+  }, [searchfun]);
   const favsearch = (city) => {
     searchfun(city);
   };
@@ -220,6 +244,7 @@ return(
           </ul>
        </div>
        </div>
+       <LoadingBar color='#10ff4880' ref={loadingBar} />
     </div>
 )
 

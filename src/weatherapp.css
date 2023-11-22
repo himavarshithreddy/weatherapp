@@ -232,7 +232,7 @@ align-items:last baseline;
 }
 .s-toast-message{
     box-shadow: 0 0 2px rgba(255, 255, 255, 1); 
-    border: 1px solid rgba(16, 255, 72, 0.5);
+    border: 1px solid #10ff4880;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
 }
