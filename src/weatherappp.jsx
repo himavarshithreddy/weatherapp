@@ -135,7 +135,7 @@ function Weatherapp(){
     const fetchUserLocation = async () => {
       try {
         // Fetch user's IP address
-        const response = await fetch('https://ipinfo.io/?token=4fa8f325b6f59f');
+        const response = await fetch('https://api.ipdata.co?api-key=cb980b4d080e774050e182dfea975621bfb35dbdebce8c88ba847baf');
         const data = await response.json();
   
         const city = data.city;
