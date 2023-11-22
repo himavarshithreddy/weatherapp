@@ -165,7 +165,7 @@ return(
     <div className="main">
       <ToastContainer position="top-right" autoClose={1000} hideProgressBar={false} newestOnTop closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
         <div className="searchbar">
-        <input type="text" className="search" placeholder="Search for City" value={city}
+        <input type="text" className="search" placeholder="Search for City" value={city || ""}
           onChange={(e) => setCity(e.target.value)} onKeyPress={handleEnterKey}  />
         <img className="searchimg" src={searchimg} alt="search" onClick={()=>{searchfun(city)}}></img>
         
