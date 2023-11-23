@@ -143,7 +143,7 @@ function Weatherapp(){
          
         console.log(lat)
 
-        const response = await fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=1&appid=71fc87e4b7cfce0bb3d28f2de83463dc`);
+        const response = await fetch(`https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=1&appid=71fc87e4b7cfce0bb3d28f2de83463dc`);
         const data = await response.json();
         console.log(data)
         const city=data[0].name;
