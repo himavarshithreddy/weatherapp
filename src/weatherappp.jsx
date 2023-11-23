@@ -137,19 +137,21 @@ function Weatherapp(){
   
     const fetchUserLocation = async () => {
       try {
-        // Fetch user's IP address
-        
-        const response = await fetch('https://api.ipdata.co?api-key=cb980b4d080e774050e182dfea975621bfb35dbdebce8c88ba847baf');
+        navigator.geolocation.getCurrentPosition(async (position) => {
+          const lat =position.coords.latitude
+          const long = position.coords.longitude
+         
+        console.log(lat)
+
+        const response = await fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=1&appid=71fc87e4b7cfce0bb3d28f2de83463dc`);
         const data = await response.json();
-  
-        const ip = data.ip;
-        const city = data.city;
-        
-        const locationval2 = document.getElementById("location");
-        locationval2.innerHTML = city;
+        console.log(data)
+        const city=data[0].name;
         console.log(city)
-  console.log(ip)
-        searchfun(ip);
+        searchfun(city)
+      })
+        
+        
       } catch (error) {
         console.error('Error fetching IP information:', error);
       }
